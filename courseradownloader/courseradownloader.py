@@ -427,6 +427,10 @@ class CourseraDownloader(object):
 
             # add a numeric prefix to the week directory name to ensure chronological ordering
             wkdirname = str(j).zfill(2) + "-" + weeklyTopic
+            # replace '  - -' with '-'
+            wkdirname = re.sub(r'\s*-+\s*', '-', wkdirname)
+            # replace '  _  _ ' with '_'
+            wkdirname = re.sub(r'(\s+|_+)\s*_*\s*', '_', wkdirname)
 
             # ensure the week dir exists
             wkdir = path.join(course_dir,wkdirname)
@@ -439,6 +443,10 @@ class CourseraDownloader(object):
 
                 # ensure chronological ordering
                 clsdirname = str(i).zfill(2) + "-" + className
+                # replace '  - -' with '-'
+                clsdirname = re.sub(r'\s*-+\s*', '-', clsdirname)
+                # replace '  _  _ ' with '_'
+                clsdirname = re.sub(r'(\s+|_+)\s*_*\s*', '_', clsdirname)
 
                 # ensure the class dir exists
                 clsdir = path.join(wkdir, clsdirname)
