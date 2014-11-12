@@ -438,7 +438,7 @@ class CourseraDownloader(object):
             for i, (className, classResources) in enumerate(weekClasses,start=1):
 
                 # ensure chronological ordering
-                clsdirname = str(i).zfill(2) + " - " + className
+                clsdirname = str(i).zfill(2) + "-" + className
 
                 # ensure the class dir exists
                 clsdir = path.join(wkdir, clsdirname)
