@@ -426,7 +426,7 @@ class CourseraDownloader(object):
                 continue
 
             # add a numeric prefix to the week directory name to ensure chronological ordering
-            wkdirname = str(j).zfill(2) + " - " + weeklyTopic
+            wkdirname = str(j).zfill(2) + "-" + weeklyTopic
 
             # ensure the week dir exists
             wkdir = path.join(course_dir,wkdirname)
