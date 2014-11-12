@@ -24,10 +24,6 @@ def filename_from_url(url):
 
     # take the last component as filename
     fname = parts[-1]
-    # replace '  - -' with '-'
-    fname = re.sub(r'\s*-+\s*', '-', fname)
-    # replace '  _  _ ' with '_'
-    fname = re.sub(r'(\s+|_+)\s*_*\s*', '_', fname)
 
     # if empty, url ended with a trailing slash
     # so join up the hostnam/path  and use that as a filename
@@ -81,6 +77,10 @@ def sanitise_filename(fileName):
     # split off extension, trim, and re-add the extension
     fn,ext = path.splitext(s)
     s = fn[:max-len(ext)] + ext
+    # replace '  - -' with '-'
+    s = re.sub(r'\s*-+\s*', '-', s)
+    # replace '  _  _ ' with '_'
+    s = re.sub(r'(\s+|_+)\s*_*\s*', '_', s)
 
     return s
 
